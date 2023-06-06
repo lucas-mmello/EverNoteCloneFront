@@ -1,13 +1,11 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./App.scss";
-import { Notification, Section } from "react-bulma-companion";
+import Home from "./screens/home";
 
 const App = () => (
-  <div>
-    <Section>
-      <Notification color="success">Javascript Notes!</Notification>
-    </Section>
-  </div>
+  <Fragment>
+    <Home />
+  </Fragment>
 );
 
 export default App;
