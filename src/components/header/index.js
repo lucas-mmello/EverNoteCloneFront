@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Navbar, Container, Buttons, Button } from "react-bulma-companion";
+import { Navbar, Container, Columns, Column } from "react-bulma-companion";
 import LogoImage from "../../assets/images/logo.png";
 import "../../styles/header.scss";
+import { Link } from "react-router-dom";
+import Home from "../../screens/home";
 
 function Header() {
   const [openMenu, setOpenMenu] = useState(false);
@@ -11,7 +13,9 @@ function Header() {
       <Container>
         <Navbar.Brand>
           <Navbar.Item>
-            <img src={LogoImage} width="112" height="28" />
+            <Link to="/">
+              <img src={LogoImage} width="112" height="28" />
+            </Link>
           </Navbar.Item>
           <Navbar.Burger onClick={() => setOpenMenu(!openMenu)} />
         </Navbar.Brand>
@@ -20,12 +24,21 @@ function Header() {
           <Navbar.Item component="a">Documentation</Navbar.Item>
           <Navbar.End>
             <Navbar.Item>
-              <Buttons>
-                <Button color="primary">
-                  <strong>Sign up</strong>
-                </Button>
-                <Button color="light">Log in</Button>
-              </Buttons>
+              <Columns>
+                <Column>
+                  <Link
+                    to="/register"
+                    className="button is-outlined is-link has-text-custom-purple"
+                  >
+                    <strong>Register</strong>
+                  </Link>
+                </Column>
+                <Column>
+                  <Link to="/login" className="button is-outlined is-link">
+                    Log in
+                  </Link>
+                </Column>
+              </Columns>
             </Navbar.Item>
           </Navbar.End>
         </Navbar.Menu>

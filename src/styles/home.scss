@@ -1,6 +1,12 @@
 @import "./_custom_colors";
+$custom-purple-intermediate: mix($custom-purple, $custom-purple-darker, 25%);
 
 .home {
-  background-color: $custom-purple;
+  background: linear-gradient(
+    to bottom,
+    $custom-purple,
+    $custom-purple-intermediate,
+    $custom-purple-darker
+  );
   height: calc(100% - 70px);
 }

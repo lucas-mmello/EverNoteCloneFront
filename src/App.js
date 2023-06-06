@@ -1,11 +1,11 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "./App.scss";
-import Home from "./screens/home";
+import Rotas from "./routes";
 
 const App = () => (
-  <Fragment>
-    <Home />
-  </Fragment>
+  <div>
+    <Rotas />
+  </div>
 );
 
 export default App;
