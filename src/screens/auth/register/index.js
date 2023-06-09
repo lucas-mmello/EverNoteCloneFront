@@ -20,7 +20,7 @@ const Register = () => (
         <Columns centered>
           <Column size="3">
             <Card>
-              <Card.Content>
+              <Card.Content className="cont">
                 <Section>
                   <Columns centered>
                     <Column size="12">

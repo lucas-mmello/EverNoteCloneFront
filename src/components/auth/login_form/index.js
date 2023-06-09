@@ -4,56 +4,43 @@ import {
   Field,
   Control,
   Input,
-  Columns,
   Column,
   Section,
   Help,
   Label,
+  Columns,
 } from "react-bulma-companion";
 import { Navigate } from "react-router-dom";
 import UserService from "../../../services/users";
 
-function RegisterForm() {
-  const [name, setName] = useState("");
+function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [redirectToLogin, setRedirectToLogin] = useState(false);
+  const [RedirectToRegister, setRedirectToRegister] = useState(false);
+  const [RedirectToNotes, setRedirectToNotes] = useState(false);
   const [error, setError] = useState(false);
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
 
     try {
-      const user = await UserService.register({
-        name: name,
-        email: email,
-        password: password,
-      });
-      setRedirectToLogin(true);
+      await UserService.login({ email: email, password: password });
+      setRedirectToNotes(true);
     } catch (error) {
       setError(true);
     }
   };
 
-  if (redirectToLogin) return <Navigate replace to={{ pathname: "/login" }} />;
+  if (RedirectToRegister == true)
+    return <Navigate replace to={{ pathname: "/register" }} />;
+  else if (RedirectToNotes == true)
+    return <Navigate replace to={{ pathname: "/notes" }} />;
 
   return (
     <Fragment>
       <Columns centered>
         <form onSubmit={handleSubmit}>
           <Column size="12">
-            <Field>
-              <Label size="small">Name:</Label>
-              <Control>
-                <Input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                  name="name"
-                />
-              </Control>
-            </Field>
             <Field>
               <Label size="small">Email:</Label>
               <Control>
@@ -83,15 +70,15 @@ function RegisterForm() {
                 <Columns breakpoint="mobile">
                   <Column>
                     <a
-                      onClick={(e) => setRedirectToLogin(true)}
+                      onClick={(e) => setRedirectToRegister(true)}
                       className="button is-white has-text-custom-purple"
                     >
-                      Login or
+                      Register or
                     </a>
                   </Column>
                   <Column>
                     <Button type="submit" className="custom-purple" outlined>
-                      Register
+                      Login
                     </Button>
                   </Column>
                 </Columns>
@@ -105,4 +92,4 @@ function RegisterForm() {
   );
 }
 
-export default RegisterForm;
+export default LoginForm;

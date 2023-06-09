@@ -20,8 +20,6 @@ function Header() {
           <Navbar.Burger onClick={() => setOpenMenu(!openMenu)} />
         </Navbar.Brand>
         <Navbar.Menu id="navbarOpen" active={openMenu}>
-          <Navbar.Item component="a">Home</Navbar.Item>
-          <Navbar.Item component="a">Documentation</Navbar.Item>
           <Navbar.End>
             <Navbar.Item>
               <Columns>
