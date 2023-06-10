@@ -1,4 +1,14 @@
 $custom-purple: #694ed8;
+@function custom-purple-light($percentage) {
+  @return lighten($custom-purple, $percentage);
+}
 $custom-purple-darker: #6600cc;
+$custom-purple-intermediate: mix($custom-purple, $custom-purple-darker, 25%);
+$gradient-purple: linear-gradient(
+  to bottom,
+  $custom-purple,
+  $custom-purple-intermediate,
+  $custom-purple-darker
+);
 $custom-grey: #f3f3f3;
 $custom-grey-light: #e4e4e4;

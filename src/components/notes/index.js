@@ -4,6 +4,7 @@ import { push as Menu } from "react-burger-menu";
 import { Columns, Column } from "react-bulma-companion";
 import ListNotes from "./list";
 import NoteService from "../../services/notes";
+import Editor from "./editor";
 
 const Notes = (props) => {
   const [notes, setNotes] = useState([]);
@@ -18,8 +19,20 @@ const Notes = (props) => {
     if (response.data.length >= 1) {
       setNotes(response.data.reverse());
       setCurrentNote(response.data[0]);
+    } else {
+      setNotes([]);
     }
   }
+
+  const createNote = async (params) => {
+    await NoteService.create();
+    fetchNotes();
+  };
+
+  const deleteNote = async (note) => {
+    await NoteService.delete(note._id);
+    fetchNotes();
+  };
 
   const selectNote = (id) => {
     const note = notes.find((note) => {
@@ -53,11 +66,13 @@ const Notes = (props) => {
             notes={notes}
             selectNote={selectNote}
             current_note={current_note}
+            createNote={createNote}
+            deleteNote={deleteNote}
           />
         </Menu>
 
         <Column size="12" className="notes-editor" id="notes-editor">
-          Editor...
+          <Editor note={current_note} />
         </Column>
       </Columns>
     </Fragment>

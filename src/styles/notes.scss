@@ -12,3 +12,19 @@
 .custom-box.is-active {
   background-color: $custom-grey-light;
 }
+
+.btn:hover {
+  background: custom-purple-light(7%);
+}
+
+.icon:hover {
+  cursor: pointer;
+}
+.notes-editor {
+  padding: 0;
+  height: calc(100% - 43px);
+
+  .quill {
+    height: 100%;
+  }
+}
