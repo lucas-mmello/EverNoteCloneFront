@@ -10,7 +10,7 @@ import {
 import LogoImage from "../../../assets/images/logo-white.png";
 import "../../../styles/header.scss";
 import UserService from "../../../services/users";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate, Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faList } from "@fortawesome/free-solid-svg-icons";
 
@@ -23,6 +23,14 @@ function HeaderLogged(props) {
     await UserService.logout();
     setRedirectToHome(true);
   };
+
+  const user = localStorage.getItem("user");
+  let name = "";
+
+  const parsedUser = JSON.parse(user);
+  name = parsedUser.name;
+
+  const location = useLocation();
 
   if (redirectToHome == true)
     return <Navigate replace to={{ pathname: "/" }} />;
@@ -44,13 +52,15 @@ function HeaderLogged(props) {
             className="navbar-item navbar-start"
             align="start"
           >
-            <Button
-              className="open-button white"
-              outlined
-              onClick={() => props.setIsOpen(true)}
-            >
-              <FontAwesomeIcon icon={faList} />
-            </Button>
+            {location.pathname === "/notes" && (
+              <Button
+                className="open-button white"
+                outlined
+                onClick={() => props.setIsOpen(true)}
+              >
+                <FontAwesomeIcon icon={faList} />
+              </Button>
+            )}
           </Navbar.Item>
           <Navbar.End>
             <Navbar.Item as="div">
@@ -62,13 +72,13 @@ function HeaderLogged(props) {
                     outlined
                     onClick={() => setOpenDrop(!openDrop)}
                   >
-                    <span>Leonardo ▼</span>
+                    <span>{name} ▼</span>
                   </Button>
                 </Dropdown.Trigger>
                 <Dropdown.Menu>
                   <Dropdown.Content>
                     <Dropdown.Item as="div">
-                      <Link to="/users/edit">User Edit</Link>
+                      <Link to="/user/edit">User Edit</Link>
                     </Dropdown.Item>
                     <Dropdown.Divider />
                     <Dropdown.Item as="div">
