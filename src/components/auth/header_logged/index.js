@@ -39,6 +39,19 @@ function HeaderLogged(props) {
           <Navbar.Burger onClick={() => setOpenMenu(!openMenu)} />
         </Navbar.Brand>
         <Navbar.Menu id="navbarOpen" active={openMenu}>
+          <Navbar.Item
+            as="div"
+            className="navbar-item navbar-start"
+            align="start"
+          >
+            <Button
+              className="open-button white"
+              outlined
+              onClick={() => props.setIsOpen(true)}
+            >
+              <FontAwesomeIcon icon={faList} />
+            </Button>
+          </Navbar.Item>
           <Navbar.End>
             <Navbar.Item as="div">
               <Dropdown active={openDrop} className="drop">

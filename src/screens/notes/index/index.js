@@ -1,11 +1,15 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import HeaderLogged from "../../../components/auth/header_logged";
+import Notes from "../../../components/notes";
 
-const Notes = () => (
-  <Fragment>
-    <HeaderLogged />
-    Hello World
-  </Fragment>
-);
+function NotesIndex() {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <Fragment>
+      <HeaderLogged setIsOpen={setIsOpen} />
+      <Notes isOpen={isOpen} setIsOpen={setIsOpen} />
+    </Fragment>
+  );
+}
 
-export default Notes;
+export default NotesIndex;
