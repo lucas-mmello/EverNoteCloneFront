@@ -5,6 +5,7 @@ import { Columns, Column } from "react-bulma-companion";
 import ListNotes from "./list";
 import NoteService from "../../services/notes";
 import Editor from "./editor";
+import Search from "./search";
 
 const Notes = (props) => {
   const [notes, setNotes] = useState([]);
@@ -43,6 +44,11 @@ const Notes = (props) => {
     setCurrentNote(updatedNote.data);
   };
 
+  const searchNotes = async (query) => {
+    const response = await NoteService.search(query);
+    setNotes(response.data);
+  };
+
   const selectNote = (id) => {
     const note = notes.find((note) => {
       return note._id == id;
@@ -68,7 +74,7 @@ const Notes = (props) => {
         >
           <Columns>
             <Column size="10" offset="1">
-              Search...
+              <Search searchNotes={searchNotes} fetchNotes={fetchNotes} />
             </Column>
           </Columns>
           <ListNotes

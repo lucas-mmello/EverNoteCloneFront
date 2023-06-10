@@ -32,15 +32,14 @@ function ListNotes(props) {
         </Column>
       </Columns>
       <ul className="notes-list">
-        {props.notes.map((item, key) => (
-          <div>
+        {props.notes.map((item) => (
+          <div key={item._id}>
             <Box
               className={`custom-box ${
                 item === props.current_note ? "is-active" : ""
               }`}
-              key={key}
               onClick={() => props.selectNote(item._id)}
-              active={item == props.current_note}
+              active={item === props.current_note ? "true" : "false"}
             >
               <Title size="6">
                 {item.title.replace(/(<([^>]+)>)/gi, "").substring(0, 15)}
