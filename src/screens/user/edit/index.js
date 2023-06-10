@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import "../../../styles/users.scss";
 import HeaderLogged from "../../../components/auth/header_logged";
 import UsersEditForm from "../../../components/users/user_edit_form";
+import UsersEditFormPassword from "../../../components/users/user_edit_password_form";
 
 const UserEdit = () => (
   <Fragment>
@@ -37,7 +38,9 @@ const UserEdit = () => (
               Password
             </Title>
             <Card>
-              <Card.Content>Users Edit Password Form...</Card.Content>
+              <Card.Content>
+                <UsersEditFormPassword />
+              </Card.Content>
             </Card>
           </Column>
         </Columns>
