@@ -1,11 +1,11 @@
-import React, { Fragment, useState, useEffect } from "react";
-
-import ReactQuill from "react-quill"; // ES6
-import "react-quill/dist/quill.snow.css"; // ES6
+import React, { Fragment, useState, useEffect, useRef } from "react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import html2pdf from "html2pdf.js";
 
 function Editor(props) {
   const [currentContent, setCurrentContent] = useState("");
-  const [timer, setTimer] = useState(null);
+  const editorRef = useRef(null);
 
   const updateNote = (content) => {
     const title = content.replace(/(<([^>]+)>)/gi, "").slice(0, 30);
@@ -13,16 +13,29 @@ function Editor(props) {
   };
 
   const handleChange = (content, delta, source) => {
-    clearTimeout(timer);
-    if (source == "user") {
+    if (source === "user") {
       setCurrentContent(content);
-      setTimer(setTimeout(() => updateNote(content), 5000));
+      updateNote(content);
     }
   };
 
   useEffect(() => {
     setCurrentContent(props.note.body);
   }, [props.note]);
+
+  const handleExportPdf = () => {
+    const content = editorRef.current.editor.root.innerHTML;
+
+    const opt = {
+      margin: 1,
+      filename: "quill_content.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+    };
+
+    html2pdf().set(opt).from(content).save();
+  };
 
   const modules = {
     toolbar: [
@@ -48,10 +61,12 @@ function Editor(props) {
   return (
     <Fragment>
       <ReactQuill
+        ref={editorRef}
         value={currentContent}
         onChange={handleChange}
         modules={modules}
       />
+      <button onClick={handleExportPdf}>Exportar como PDF</button>
     </Fragment>
   );
 }
