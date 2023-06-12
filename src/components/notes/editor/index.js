@@ -72,6 +72,7 @@ function Editor(props) {
       ["link"],
       ["clean"],
       ["image"],
+      ["video"],
     ],
   };
 
@@ -83,7 +84,7 @@ function Editor(props) {
         onChange={handleChange}
         modules={modules}
       />
-      <Button className="btn" onClick={handleExportPdf}>
+      <Button className="btn m-y" onClick={handleExportPdf}>
         Exportar como PDF
       </Button>
       <Modal active={showModal}>
