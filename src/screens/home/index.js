@@ -7,6 +7,8 @@ import {
   Title,
   Container,
   Columns,
+  Footer,
+  Content,
 } from "react-bulma-companion";
 import "../../styles/home.scss";
 import { Link } from "react-router-dom";
@@ -40,6 +42,21 @@ const Home = () => (
         </Columns>
       </Container>
     </Section>
+    <Footer className="footer">
+      <Content textAlign="center">
+        <p>
+          <strong>Javascript Notes</strong> by{" "}
+          <a href="https://github.com/lucas-mmello?tab=repositories">
+            Lucas Mello
+          </a>
+          . Link do repositório github
+          <a href="https://github.com/lucas-mmello/EverNoteCloneFront">
+            {" "}
+            Aqui!
+          </a>
+        </p>
+      </Content>
+    </Footer>
   </Fragment>
 );
 
