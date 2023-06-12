@@ -14,3 +14,7 @@ $custom-purple-intermediate: mix($custom-purple, $custom-purple-darker, 25%);
 .cont {
   padding: 3rem;
 }
+
+.btn:hover {
+  background: custom-purple-light(7%);
+}

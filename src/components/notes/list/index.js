@@ -40,6 +40,7 @@ function ListNotes(props) {
               }`}
               onClick={() => props.selectNote(item._id)}
               active={item === props.current_note ? "true" : "false"}
+              title="Clique para editar essa nota..."
             >
               <Title size="6">
                 {item.title.replace(/(<([^>]+)>)/gi, "").substring(0, 15)}

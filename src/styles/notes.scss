@@ -12,6 +12,9 @@
 .custom-box.is-active {
   background-color: $custom-grey-light;
 }
+.custom-box:hover {
+  cursor: pointer;
+}
 
 .btn:hover {
   background: custom-purple-light(7%);

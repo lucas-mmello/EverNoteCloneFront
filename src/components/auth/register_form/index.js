@@ -84,13 +84,13 @@ function RegisterForm() {
                   <Column>
                     <a
                       onClick={(e) => setRedirectToLogin(true)}
-                      className="button is-white has-text-custom-purple"
+                      className="button  has-text-custom-purple btn"
                     >
                       Login or
                     </a>
                   </Column>
                   <Column>
-                    <Button type="submit" className="custom-purple" outlined>
+                    <Button type="submit" className="is-success" outlined>
                       Register
                     </Button>
                   </Column>
