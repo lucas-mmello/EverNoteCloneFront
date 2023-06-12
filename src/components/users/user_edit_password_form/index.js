@@ -64,7 +64,7 @@ function UsersEditFormPassword() {
           <Control>
             <Columns>
               <Column className="has-text-right">
-                <Button type="submit" className="btn" outlined>
+                <Button type="submit" color="success" outlined>
                   Update Password
                 </Button>
               </Column>

@@ -52,7 +52,7 @@ const UserEdit = () => (
         </Columns>
         <Columns centered>
           <Column size="4" className="has-text-left">
-            <Button>
+            <Button className="btn">
               <Link to="/notes">Voltar para notas...</Link>
             </Button>
           </Column>
