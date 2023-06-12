@@ -25,7 +25,7 @@ function UsersEditFormPassword() {
         await UserService.updatePassword({ password: password });
         setStatus("success");
       } catch (err) {
-        setStatus("error");
+        setStatus("error_update");
       }
     } else {
       setStatus("error_confirmation_password");

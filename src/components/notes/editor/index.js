@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect, useRef } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { Button, Modal, Input } from "react-bulma-companion";
 import html2pdf from "html2pdf.js";
 
 function Editor(props) {
@@ -23,18 +24,34 @@ function Editor(props) {
     setCurrentContent(props.note.body);
   }, [props.note]);
 
+  const [showModal, setShowModal] = useState(false);
+  const [fileName, setFileName] = useState("");
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   const handleExportPdf = () => {
+    openModal();
+  };
+
+  const handleDownloadPdf = () => {
     const content = editorRef.current.editor.root.innerHTML;
 
     const opt = {
       margin: 1,
-      filename: "quill_content.pdf",
+      filename: `${fileName}.pdf`,
       image: { type: "jpeg", quality: 0.98 },
       html2canvas: { scale: 2 },
       jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
     };
 
     html2pdf().set(opt).from(content).save();
+    closeModal();
   };
 
   const modules = {
@@ -66,7 +83,31 @@ function Editor(props) {
         onChange={handleChange}
         modules={modules}
       />
-      <button onClick={handleExportPdf}>Exportar como PDF</button>
+      <Button className="btn" onClick={handleExportPdf}>
+        Exportar como PDF
+      </Button>
+      <Modal active={showModal}>
+        <Modal.Background />
+        <Modal.Card>
+          <Modal.CardHead>
+            <Modal.CardTitle>Escolha o nome do pdf</Modal.CardTitle>
+            <Modal.Close size="large" onClick={closeModal} />
+          </Modal.CardHead>
+          <Modal.CardBody>
+            <Input
+              type="text"
+              value={fileName}
+              onChange={(e) => setFileName(e.target.value)}
+              placeholder="Nome do arquivo"
+            />
+          </Modal.CardBody>
+          <Modal.CardFoot>
+            <Button color="success" className="btn" onClick={handleDownloadPdf}>
+              Baixar
+            </Button>
+          </Modal.CardFoot>
+        </Modal.Card>
+      </Modal>
     </Fragment>
   );
 }

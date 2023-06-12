@@ -2,11 +2,10 @@
 $custom-purple-intermediate: mix($custom-purple, $custom-purple-darker, 25%);
 
 .home {
-  background: linear-gradient(
-    to bottom,
-    $custom-purple,
-    $custom-purple-intermediate,
-    $custom-purple-darker
-  );
+  background: $gradient-purple;
+  height: calc(100% - 70px);
+}
+.home-logged {
+  background: $gradient-purple-light;
   height: calc(100% - 70px);
 }

@@ -13,6 +13,7 @@ import "../../../styles/users.scss";
 import HeaderLogged from "../../../components/auth/header_logged";
 import UsersEditForm from "../../../components/users/user_edit_form";
 import UsersEditFormPassword from "../../../components/users/user_edit_password_form";
+import UsersDelete from "../../../components/users/user_delete";
 
 const UserEdit = () => (
   <Fragment>
@@ -45,8 +46,8 @@ const UserEdit = () => (
           </Column>
         </Columns>
         <Columns centered>
-          <Column size="4" className="has-text-right">
-            Users Delete Button...
+          <Column size="4" className="has-text-left">
+            <UsersDelete />
           </Column>
         </Columns>
         <Columns centered>

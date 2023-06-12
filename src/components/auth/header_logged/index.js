@@ -20,16 +20,21 @@ function HeaderLogged(props) {
   const [redirectToHome, setRedirectToHome] = useState(false);
 
   const logOut = async () => {
-    await UserService.logout();
-    setRedirectToHome(true);
+    try {
+      await UserService.logout();
+      setRedirectToHome(true);
+    } catch (error) {
+      console.log(`Erro: ${error}`);
+    }
   };
 
   const user = localStorage.getItem("user");
   let name = "";
 
-  const parsedUser = JSON.parse(user);
-  name = parsedUser.name;
-
+  if (user) {
+    const parsedUser = JSON.parse(user);
+    name = parsedUser.name;
+  }
   const location = useLocation();
 
   if (redirectToHome == true)
@@ -40,7 +45,7 @@ function HeaderLogged(props) {
       <Container>
         <Navbar.Brand>
           <Navbar.Item>
-            <Link to="/">
+            <Link to="/logged">
               <img src={LogoImage} width="112" height="28" />
             </Link>
           </Navbar.Item>

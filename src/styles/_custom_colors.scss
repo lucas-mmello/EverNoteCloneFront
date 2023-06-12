@@ -3,12 +3,26 @@ $custom-purple: #694ed8;
   @return lighten($custom-purple, $percentage);
 }
 $custom-purple-darker: #6600cc;
+$custom-purple-dark: #4b36a8; // Adiciona um roxo mais escuro
 $custom-purple-intermediate: mix($custom-purple, $custom-purple-darker, 25%);
 $gradient-purple: linear-gradient(
   to bottom,
   $custom-purple,
   $custom-purple-intermediate,
-  $custom-purple-darker
+  $custom-purple-darker,
+  $custom-purple-dark
 );
 $custom-grey: #f3f3f3;
 $custom-grey-light: #e4e4e4;
+$custom-purple-light: custom-purple-light(
+  20%
+); // Adiciona uma variação mais clara do roxo existente
+$custom-violet: #8a2be2; // Adiciona uma cor roxa mais próxima do violeta
+
+$gradient-purple-light: linear-gradient(
+  to bottom,
+  $custom-purple-darker,
+  $custom-violet,
+  $custom-purple,
+  $custom-purple-light
+);

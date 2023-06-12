@@ -19,21 +19,19 @@ const Home = () => (
         <Columns>
           <Column size="5">
             <Title size="2" spaced className="has-text-white">
-              Create notes easily and access when you wants on the cloud
+              Simplify Note-Taking and Stay Organized
             </Title>
             <Title size="5" spaced className="has-text-light" subtitle>
-              Lorem ipsum, or lipsum as it is sometimes known, is dummy text
-              used in laying out print, graphic or web designs.
-              <br />
-              <br />
-              Lorem ipsum, or lipsum as it is sometimes known, is dummy text
-              used in laying out print.
+              Our note-taking platform offers an easy and efficient way to
+              capture and manage your ideas. Whether you're brainstorming,
+              planning, or keeping important information, our user-friendly
+              interface is designed to meet all your note-taking needs.
             </Title>
             <Link
               to="/register"
               className="button is-outlined is-white is-large"
             >
-              <strong>Register for free Nowstrong</strong>
+              <strong>Register for free Now!</strong>
             </Link>
           </Column>
           <Column size="6" offset="1">

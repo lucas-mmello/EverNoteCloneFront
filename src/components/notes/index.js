@@ -16,37 +16,57 @@ const Notes = (props) => {
   });
 
   async function fetchNotes() {
-    const response = await NoteService.index();
-    if (response.data.length >= 1) {
-      setNotes(response.data.reverse());
-      setCurrentNote(response.data[0]);
-    } else {
-      setNotes([]);
+    try {
+      const response = await NoteService.index();
+      if (response.data.length >= 1) {
+        setNotes(response.data.reverse());
+        setCurrentNote(response.data[0]);
+      } else {
+        setNotes([]);
+      }
+    } catch (error) {
+      console.log("Erro ao buscar as notas:", error);
     }
   }
 
   const createNote = async (params) => {
-    await NoteService.create();
-    fetchNotes();
+    try {
+      await NoteService.create();
+      fetchNotes();
+    } catch (error) {
+      console.log("Erro ao criar a nota:", error);
+    }
   };
 
   const deleteNote = async (note) => {
-    await NoteService.delete(note._id);
-    fetchNotes();
+    try {
+      await NoteService.delete(note._id);
+      fetchNotes();
+    } catch (error) {
+      console.log("Erro ao excluir a nota:", error);
+    }
   };
 
   const updateNote = async (oldNote, params) => {
-    const updatedNote = await NoteService.update(oldNote._id, params);
-    const index = notes.indexOf(oldNote);
-    const newNotes = notes;
-    newNotes[index] = updatedNote.data;
-    setNotes(newNotes);
-    setCurrentNote(updatedNote.data);
+    try {
+      const updatedNote = await NoteService.update(oldNote._id, params);
+      const index = notes.indexOf(oldNote);
+      const newNotes = notes;
+      newNotes[index] = updatedNote.data;
+      setNotes(newNotes);
+      setCurrentNote(updatedNote.data);
+    } catch (error) {
+      console.log("Erro ao atualizar a nota:", error);
+    }
   };
 
   const searchNotes = async (query) => {
-    const response = await NoteService.search(query);
-    setNotes(response.data);
+    try {
+      const response = await NoteService.search(query);
+      setNotes(response.data);
+    } catch (error) {
+      console.log("Erro ao pesquisar notas:", error);
+    }
   };
 
   const selectNote = (id) => {
@@ -93,4 +113,5 @@ const Notes = (props) => {
     </Fragment>
   );
 };
+
 export default Notes;
