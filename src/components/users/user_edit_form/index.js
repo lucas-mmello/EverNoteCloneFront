@@ -9,8 +9,11 @@ import {
   Title,
   Help,
   Label,
+  Icon,
 } from "react-bulma-companion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import UserService from "../../../services/users";
+import { faEnvelope, faUser } from "@fortawesome/free-solid-svg-icons";
 
 function UsersEditForm() {
   const [email, setEmail] = useState("");
@@ -42,8 +45,8 @@ function UsersEditForm() {
     <Fragment>
       <form onSubmit={handleSubmit}>
         <Field>
-          <Control>
-            <Label className="has-text-grey">Full Name</Label>
+          <Label className="has-text-grey">Full Name</Label>
+          <Control iconsLeft>
             <Input
               type="text"
               value={name || ""}
@@ -51,11 +54,14 @@ function UsersEditForm() {
               required
               name="name"
             />
+            <Icon size="small" align="left">
+              <FontAwesomeIcon icon={faUser} />
+            </Icon>
           </Control>
         </Field>
         <Field>
-          <Control>
-            <Label className="has-text-grey">Email</Label>
+          <Label className="has-text-grey">Email</Label>
+          <Control iconsLeft>
             <Input
               type="email"
               value={email || ""}
@@ -63,6 +69,9 @@ function UsersEditForm() {
               required
               name="email"
             />
+            <Icon size="small" align="left">
+              <FontAwesomeIcon icon={faEnvelope} />
+            </Icon>
           </Control>
         </Field>
 

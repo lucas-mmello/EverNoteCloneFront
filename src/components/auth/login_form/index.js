@@ -9,7 +9,10 @@ import {
   Help,
   Label,
   Columns,
+  Icon,
 } from "react-bulma-companion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faKey, faUser } from "@fortawesome/free-solid-svg-icons";
 import { Navigate } from "react-router-dom";
 import UserService from "../../../services/users";
 
@@ -43,7 +46,7 @@ function LoginForm() {
           <Column size="12">
             <Field>
               <Label size="small">Email:</Label>
-              <Control>
+              <Control iconsLeft>
                 <Input
                   type="email"
                   value={email}
@@ -51,11 +54,14 @@ function LoginForm() {
                   required
                   name="email"
                 />
+                <Icon size="small" align="left">
+                  <FontAwesomeIcon icon={faEnvelope} />
+                </Icon>
               </Control>
             </Field>
             <Field>
               <Label size="small">Password:</Label>
-              <Control>
+              <Control iconsLeft>
                 <Input
                   type="password"
                   value={password}
@@ -63,6 +69,9 @@ function LoginForm() {
                   required
                   name="password"
                 />
+                <Icon size="small" align="left">
+                  <FontAwesomeIcon icon={faKey} />
+                </Icon>
               </Control>
             </Field>
             <Field>

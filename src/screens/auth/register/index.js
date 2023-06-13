@@ -23,7 +23,7 @@ const Register = () => (
             tablet={{ size: "half" }}
             desktop={{ size: "half" }}
             widescreen={{ size: "one-third" }}
-            fullhd={{ size: "one-quarter" }}
+            fullhd={{ size: "two-quarter" }}
           >
             <Card>
               <Card.Content className="cont">

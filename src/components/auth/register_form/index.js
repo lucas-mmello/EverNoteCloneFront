@@ -9,7 +9,10 @@ import {
   Section,
   Help,
   Label,
+  Icon,
 } from "react-bulma-companion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope, faKey, faUser } from "@fortawesome/free-solid-svg-icons";
 import { Navigate } from "react-router-dom";
 import UserService from "../../../services/users";
 
@@ -44,7 +47,7 @@ function RegisterForm() {
           <Column size="12">
             <Field>
               <Label size="small">Name:</Label>
-              <Control>
+              <Control iconsLeft>
                 <Input
                   type="text"
                   value={name}
@@ -52,11 +55,14 @@ function RegisterForm() {
                   required
                   name="name"
                 />
+                <Icon size="small" align="left">
+                  <FontAwesomeIcon icon={faUser} />
+                </Icon>
               </Control>
             </Field>
             <Field>
               <Label size="small">Email:</Label>
-              <Control>
+              <Control iconsLeft>
                 <Input
                   type="email"
                   value={email}
@@ -64,18 +70,23 @@ function RegisterForm() {
                   required
                   name="email"
                 />
+                <Icon size="small" align="left">
+                  <FontAwesomeIcon icon={faEnvelope} />
+                </Icon>
               </Control>
             </Field>
             <Field>
               <Label size="small">Password:</Label>
-              <Control>
+              <Control iconsLeft>
                 <Input
-                  type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   name="password"
                 />
+                <Icon size="small" align="left">
+                  <FontAwesomeIcon icon={faKey} />
+                </Icon>
               </Control>
             </Field>
             <Field>

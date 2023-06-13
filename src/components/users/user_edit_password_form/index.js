@@ -9,8 +9,11 @@ import {
   Title,
   Help,
   Label,
+  Icon,
 } from "react-bulma-companion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import UserService from "../../../services/users";
+import { faKey } from "@fortawesome/free-solid-svg-icons";
 
 function UsersEditFormPassword() {
   const [password, setPassword] = useState("");
@@ -36,8 +39,8 @@ function UsersEditFormPassword() {
     <Fragment>
       <form onSubmit={handleSubmit}>
         <Field>
-          <Control>
-            <Label className="has-text-grey">Password</Label>
+          <Label className="has-text-grey">Password</Label>
+          <Control iconsLeft>
             <Input
               type="text"
               value={password}
@@ -45,11 +48,14 @@ function UsersEditFormPassword() {
               required
               name="password"
             />
+            <Icon size="small" align="left">
+              <FontAwesomeIcon icon={faKey} />
+            </Icon>
           </Control>
         </Field>
         <Field>
-          <Control>
-            <Label className="has-text-grey">Password Confirmation</Label>
+          <Label className="has-text-grey">Password Confirmation</Label>
+          <Control iconsLeft>
             <Input
               type="text"
               value={password_confirmation}
@@ -57,6 +63,9 @@ function UsersEditFormPassword() {
               required
               name="password_confirmation"
             />
+            <Icon size="small" align="left">
+              <FontAwesomeIcon icon={faKey} />
+            </Icon>
           </Control>
         </Field>
 
