@@ -17,8 +17,14 @@ const Login = () => (
     <Header />
     <Section size="medium" className="auth">
       <Container>
-        <Columns centered>
-          <Column size="3">
+        <Columns activate="mobile" centered>
+          <Column
+            mobile={{ size: "four-fifths" }}
+            tablet={{ size: "half" }}
+            desktop={{ size: "half" }}
+            widescreen={{ size: "one-third" }}
+            fullhd={{ size: "one-quarter" }}
+          >
             <Card>
               <Card.Content className="cont">
                 <Section>

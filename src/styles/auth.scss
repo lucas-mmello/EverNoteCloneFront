@@ -11,9 +11,9 @@ $custom-purple-intermediate: mix($custom-purple, $custom-purple-darker, 25%);
   height: calc(100% - 70px);
 }
 
-.cont {
-  padding: 3rem;
-}
+// .cont {
+//   // padding: 3rem;
+// }
 
 .btn:hover {
   background: custom-purple-light(7%);
