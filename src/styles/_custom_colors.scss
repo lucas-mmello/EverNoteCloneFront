@@ -18,6 +18,7 @@ $custom-purple-light: custom-purple-light(
   20%
 ); // Adiciona uma variação mais clara do roxo existente
 $custom-violet: #8a2be2; // Adiciona uma cor roxa mais próxima do violeta
+$custom-violet-light: lighten($custom-violet, 7%);
 
 $gradient-purple-light: linear-gradient(
   to bottom,
