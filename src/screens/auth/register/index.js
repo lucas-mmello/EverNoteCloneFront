@@ -44,8 +44,8 @@ const Register = () => (
                       </Title>
                     </Column>
                   </Columns>
-                  <RegisterForm />
                 </Section>
+                <RegisterForm />
               </Card.Content>
             </Card>
           </Column>
