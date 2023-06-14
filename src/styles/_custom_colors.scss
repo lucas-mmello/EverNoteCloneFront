@@ -27,3 +27,8 @@ $gradient-purple-light: linear-gradient(
   $custom-purple,
   $custom-purple-light
 );
+
+.modal-card {
+  max-width: 90vw;
+  max-height: 90vh;
+}

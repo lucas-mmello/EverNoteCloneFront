@@ -49,7 +49,7 @@ function UsersEditFormPassword() {
           <Label className="has-text-grey">Password</Label>
           <Control iconsLeft>
             <Input
-              type="text"
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -64,7 +64,7 @@ function UsersEditFormPassword() {
           <Label className="has-text-grey">Password Confirmation</Label>
           <Control iconsLeft>
             <Input
-              type="text"
+              type="password"
               value={password_confirmation}
               onChange={(e) => setPasswordConfirmation(e.target.value)}
               required

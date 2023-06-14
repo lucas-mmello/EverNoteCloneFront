@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect, useRef } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { Button, Modal, Input } from "react-bulma-companion";
+import { Button, Modal, Input, Title } from "react-bulma-companion";
 import html2pdf from "html2pdf.js";
 
 function Editor(props) {
@@ -91,7 +91,7 @@ function Editor(props) {
         <Modal.Background />
         <Modal.Card>
           <Modal.CardHead>
-            <Modal.CardTitle>Escolha o nome do pdf</Modal.CardTitle>
+            <Title size="5">Escolha o nome do pdf</Title>
             <Modal.Close size="large" onClick={closeModal} />
           </Modal.CardHead>
           <Modal.CardBody>
