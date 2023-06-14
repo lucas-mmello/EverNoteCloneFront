@@ -14,11 +14,13 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import UserService from "../../../services/users";
 import { faKey } from "@fortawesome/free-solid-svg-icons";
+import { Navigate } from "react-router-dom";
 
 function UsersEditFormPassword() {
   const [password, setPassword] = useState("");
   const [password_confirmation, setPasswordConfirmation] = useState("");
   const [status, setStatus] = useState(null);
+  const [redirect, setRedirect] = useState(false);
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
@@ -27,6 +29,11 @@ function UsersEditFormPassword() {
       try {
         await UserService.updatePassword({ password: password });
         setStatus("success");
+
+        // Redirecionamento após 2 segundos
+        setTimeout(() => {
+          setRedirect(true);
+        }, 2000);
       } catch (err) {
         setStatus("error_update");
       }
@@ -90,6 +97,7 @@ function UsersEditFormPassword() {
           <Help color="primary">Updated with success</Help>
         )}
       </form>
+      {redirect && <Navigate replace to="/notes" />}
     </Fragment>
   );
 }

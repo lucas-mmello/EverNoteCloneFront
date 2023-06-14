@@ -14,11 +14,13 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import UserService from "../../../services/users";
 import { faEnvelope, faUser } from "@fortawesome/free-solid-svg-icons";
+import { Navigate } from "react-router-dom";
 
 function UsersEditForm() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [status, setStatus] = useState(null);
+  const [redirect, setRedirect] = useState(false);
 
   const initializeUser = async () => {
     const user = await JSON.parse(localStorage.getItem("user"));
@@ -36,6 +38,11 @@ function UsersEditForm() {
     try {
       await UserService.update({ email: email, name: name });
       setStatus("success");
+
+      // Redirecionamento após 2 segundos
+      setTimeout(() => {
+        setRedirect(true);
+      }, 2000);
     } catch (err) {
       setStatus("error");
     }
@@ -86,11 +93,12 @@ function UsersEditForm() {
             </Columns>
           </Control>
         </Field>
-        {status == "error" && <Help color="danger">Problem in update</Help>}
-        {status == "success" && (
+        {status === "error" && <Help color="danger">Problem in update</Help>}
+        {status === "success" && (
           <Help color="primary">Updated with success</Help>
         )}
       </form>
+      {redirect && <Navigate replace to="/notes" />}
     </Fragment>
   );
 }
