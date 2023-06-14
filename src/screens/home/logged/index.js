@@ -47,11 +47,17 @@ const Logged = () => (
       <Content textAlign="center">
         <p>
           <strong>Javascript Notes</strong> by{" "}
-          <a href="https://github.com/lucas-mmello?tab=repositories">
+          <a
+            href="https://github.com/lucas-mmello?tab=repositories"
+            target="_blank"
+          >
             Lucas Mello
           </a>
           . Link do repositório github
-          <a href="https://github.com/lucas-mmello/EverNoteCloneFront">
+          <a
+            href="https://github.com/lucas-mmello/EverNoteCloneFront"
+            target="_blank"
+          >
             {" "}
             Aqui!
           </a>
