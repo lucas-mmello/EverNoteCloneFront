@@ -23,7 +23,7 @@ const UserEdit = () => (
         <Columns centered className="users-edit">
           <Column size="4">
             <Title size="5" className="has-text-grey has-text-left">
-              Informações Pessoais
+              Personal Informations
             </Title>
             <Card>
               <Card.Content>
@@ -53,7 +53,7 @@ const UserEdit = () => (
         <Columns centered>
           <Column size="4" className="has-text-left">
             <Button className="btn">
-              <Link to="/notes">Voltar para notas...</Link>
+              <Link to="/notes">Back to notes...</Link>
             </Button>
           </Column>
         </Columns>

@@ -38,7 +38,7 @@ function UsersDelete() {
   return (
     <Fragment>
       <Button color="danger" onClick={modalDelete}>
-        Excluir conta
+        Delete Account
       </Button>
       <Modal active={showModal}>
         <Modal.Background />

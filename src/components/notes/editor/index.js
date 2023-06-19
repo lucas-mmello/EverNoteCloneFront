@@ -85,13 +85,13 @@ function Editor(props) {
         modules={modules}
       />
       <Button className="btn m-y" onClick={handleExportPdf}>
-        Exportar como PDF
+        Export as PDF
       </Button>
       <Modal active={showModal}>
         <Modal.Background />
         <Modal.Card>
           <Modal.CardHead>
-            <Title size="5">Escolha o nome do pdf</Title>
+            <Title size="5">Choose a name for the pdf</Title>
             <Modal.Close size="large" onClick={closeModal} />
           </Modal.CardHead>
           <Modal.CardBody>
@@ -99,12 +99,12 @@ function Editor(props) {
               type="text"
               value={fileName}
               onChange={(e) => setFileName(e.target.value)}
-              placeholder="Nome do arquivo"
+              placeholder="Archive Name"
             />
           </Modal.CardBody>
           <Modal.CardFoot>
             <Button color="success" className="btn" onClick={handleDownloadPdf}>
-              Baixar
+              Download
             </Button>
           </Modal.CardFoot>
         </Modal.Card>
